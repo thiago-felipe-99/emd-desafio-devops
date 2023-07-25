@@ -1,15 +1,18 @@
-VENV_BIN := .venv/bin
-PYTHON := $(VENV_BIN)/python
-PIP := $(VENV_BIN)/pip
-FLASK := $(VENV_BIN)/flask
+.PHONY: install_poetry
+install_poetry:
+	curl -sSL https://install.python-poetry.org | python3 -
+
+.PHONY: check_poetry
+check_poetry:
+ ifeq (, $(shell which poetry))
+	 $(error "No poetry in $$PATH, consider doing make install_poetry")
+ endif
 
 .PHONY: prepare
-prepare:
-	python3 -m venv .venv
-	$(PIP) install Flask
-	$(PIP) install python-dotenv
+prepare: check_poetry
+	poetry install
 
 .PHONY: run
 run: prepare
-	$(FLASK) run
+	poetry run flask run --debug
 
