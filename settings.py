@@ -1,3 +1,3 @@
 from os import environ
 
-NAME=environ.get("NAME")
+NAME = environ.get("NAME")
