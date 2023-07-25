@@ -8,11 +8,15 @@ check_poetry:
 	 $(error "No poetry in $$PATH, consider doing make install_poetry")
  endif
 
-.PHONY: prepare
-prepare: check_poetry
+.PHONY: install_dependecies
+install_dependecies: check_poetry
 	poetry install
 
+.PHONY: lint
+lint:
+	poetry run black .
+
 .PHONY: run
-run: prepare
+run: install_dependecies lint
 	poetry run flask run --debug
 
