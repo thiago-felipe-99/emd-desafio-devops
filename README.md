@@ -9,7 +9,7 @@ Neste repositório, você encontrará uma aplicação web desenvolvida em [Flask
 - [x] Modificar a aplicação para consumir uma variável de ambiente chamada `NAME` e, no lugar de "World", exibir o valor dessa variável.
 - [x] Modificar o arquivo `.gitignore` para que seja adequado a uma aplicação Python.
 - [x] Elaborar, implementar e reforçar o fluxo de desenvolvimento do repositório.
-- [ ] Consolidar boas práticas no repositório através de ferramentas de análise estática, hooks de pré-commit, etc. a seu critério.
+- [x] Consolidar boas práticas no repositório através de ferramentas de análise estática, hooks de pré-commit, etc. a seu critério.
 - [ ] Preparar a aplicação para que seja production-ready.
 - [ ] Criar arquivos e scripts para que a aplicação possa ser executada em um container.
 - [ ] Elaborar um modelo de desenvolvimento que permita a execução da aplicação em um ambiente de desenvolvimento local.
