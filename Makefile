@@ -7,6 +7,7 @@ FLASK := $(VENV_BIN)/flask
 prepare:
 	python3 -m venv .venv
 	$(PIP) install Flask
+	$(PIP) install python-dotenv
 
 .PHONY: run
 run: prepare

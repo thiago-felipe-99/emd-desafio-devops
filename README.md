@@ -6,7 +6,7 @@ Repositório de instrução para o desafio técnico para a vaga de Pessoa Engenh
 
 Neste repositório, você encontrará uma aplicação web desenvolvida em [Flask](https://flask.palletsprojects.com/). Sua tarefa consiste nos seguintes passos (realizá-los na ordem que julgar adequada e ir marcando os itens completos):
 
-- [ ] Modificar a aplicação para consumir uma variável de ambiente chamada `NAME` e, no lugar de "World", exibir o valor dessa variável.
+- [x] Modificar a aplicação para consumir uma variável de ambiente chamada `NAME` e, no lugar de "World", exibir o valor dessa variável.
 - [x] Modificar o arquivo `.gitignore` para que seja adequado a uma aplicação Python.
 - [ ] Elaborar, implementar e reforçar o fluxo de desenvolvimento do repositório.
 - [ ] Consolidar boas práticas no repositório através de ferramentas de análise estática, hooks de pré-commit, etc. a seu critério.
