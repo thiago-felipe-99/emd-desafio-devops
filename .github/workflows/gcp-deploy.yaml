@@ -3,6 +3,8 @@ name: Build and Deploy to Cloud Run
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 
 env:
@@ -22,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Echo
+        run: echo ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Google Auth
         id: auth
