@@ -9,15 +9,21 @@ RUN apk add make curl
 
 COPY pyproject.toml Makefile ./
 
+ENV POETRY_HOME=/etc/poetry
+
 RUN make install_poetry
 
-ENV PATH=/root/.local/bin:$PATH
+ENV PATH=/etc/poetry/bin:$PATH
 
 RUN make install_deploy_dependecies
 
 COPY src ./src
 
-USER non-root
+RUN mkdir /.cache
+
+RUN chmod 777 /.cache
+
+USER 1000
 
 ENTRYPOINT make deploy
 
