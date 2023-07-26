@@ -27,7 +27,7 @@ lint:
 
 .PHONY: run
 run: install_all_dependecies lint
-	poetry run flask --app src run --debug
+	poetry run flask --app src run --debug --port 8080
 
 .PHONY: deploy
 deploy: install_deploy_dependecies
