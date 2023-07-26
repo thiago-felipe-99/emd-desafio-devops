@@ -23,9 +23,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Printando
-        run: echo ${{ secrets.GCP_APP_NAME }}
-
       - name: Google Auth
         id: auth
         uses: 'google-github-actions/auth@v0'
