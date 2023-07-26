@@ -29,7 +29,7 @@ lint: install_all_dependecies
 .PHONY: check_lint
 check_lint: install_all_dependecies
 	poetry run black . --check --diff
-	poetry run flake8
+	poetry run flake8 .
 
 .PHONY: run
 run: install_all_dependecies lint
