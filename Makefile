@@ -25,11 +25,13 @@ install_deploy_dependecies: check_poetry
 lint: install_all_dependecies
 	poetry run black .
 	poetry run flake8 .
+	poetry run isort .
 
 .PHONY: check_lint
 check_lint: install_all_dependecies
 	poetry run black . --check --diff
 	poetry run flake8 .
+	poetry run isort . --check-only
 
 .PHONY: run
 run: install_all_dependecies lint
