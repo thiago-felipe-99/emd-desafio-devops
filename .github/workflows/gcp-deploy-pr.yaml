@@ -58,20 +58,16 @@ jobs:
 
       - name: Comment Cloud Run URL on pull request
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const prNumber = context.payload.pull_request.number;
-            const cloudRunURL = '${{ steps.deploy.outputs.url }}';
-            const commentBody = `Deployed to Google Cloud Run!\n\n[Click here to access the service](${cloudRunURL})`;
-
-            github.issues.createComment({
-              issue_number: prNumber,
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: commentBody
+              body: 'Deployed to Google Cloud Run!\n\n[Click here to access the service](${{ steps.deploy.outputs.url }})'
             });
 
-      - name: Show Output
+      - name: Show Output URL
         run: echo ${{ steps.deploy.outputs.url }}
