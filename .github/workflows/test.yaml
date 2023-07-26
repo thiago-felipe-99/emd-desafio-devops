@@ -25,3 +25,9 @@ jobs:
     - name: Run tests
       shell: bash
       run: make test
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@95b1a2355bd0e526ad2fd62da9fd386ad4c98474
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: coverage.xml

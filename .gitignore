@@ -4,6 +4,7 @@ __pycache__
 .mypy_cache
 .env
 .flaskenv
+coverage.xml
 .coverage
 htmlcov
 .pytest_cache

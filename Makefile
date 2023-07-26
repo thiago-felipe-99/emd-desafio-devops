@@ -56,7 +56,7 @@ docker: build
 
 .PHONY: test
 test: install_all_dependecies
-	poetry run pytest
+	poetry run pytest --cov=. --cov-report xml
 
 .PHONY: coverage
 coverage: install_all_dependecies
