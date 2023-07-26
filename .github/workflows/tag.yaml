@@ -7,6 +7,8 @@ on:
 
 jobs:
   create-tag:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -19,8 +21,7 @@ jobs:
     - name: Check for commits this week
       id: check-commits
       run: |
-        current_week="$(echo ${{ steps.date.outputs.week }} | tr '-' '/')"
-        week_commits="$(git log --since='1 week ago' --format='%cd' --date=iso | grep $current_week | wc -l)"
+        week_commits="$(git log --since='1 week ago' --format='%cd' --date=iso | wc -l)"
         echo "::set-output name=has_commits::$(if [ $week_commits -gt 0 ]; then echo 'true'; else echo 'false'; fi)"
 
     - name: Create tag
