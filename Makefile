@@ -13,8 +13,8 @@ check_poetry:
 	 $(error "No poetry in $$PATH, consider doing make install_poetry")
  endif
 
-install_all_dependecies: check_poetry
 .PHONY: install_all_dependecies
+install_all_dependecies: check_poetry
 	poetry install
 
 .PHONY: install_deploy_dependecies
