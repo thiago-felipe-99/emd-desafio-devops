@@ -31,7 +31,7 @@ run: install_all_dependecies lint
 
 .PHONY: deploy
 deploy: install_deploy_dependecies
-	poetry run gunicorn --bind 0.0.0.0 --workers 1 --threads 8 --timeout 0 app:app
+	poetry run gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
 
 .PHONY: build
 build:
