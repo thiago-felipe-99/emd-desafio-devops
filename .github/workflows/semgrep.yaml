@@ -10,7 +10,7 @@ on:
 
 jobs:
   semgrep:
-    name: semgrep/ci 
+    name: semgrep/ci
     runs-on: ubuntu-latest
 
     container:
