@@ -1,8 +1,6 @@
 name: Docker
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -11,15 +9,15 @@ jobs:
         name: Setup Gcloud Account
         runs-on: ubuntu-latest
         env:
-          IMAGE_NAME: gcr.io/${{ GCP.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}:$GITHUB_REF_NAME
+          IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}:$GITHUB_REF_NAME
         steps:
 
         - name: Login
           uses: google-github-actions/setup-gcloud@v0
           with:
-            project_id: ${{ GCP.GCP_PROJECT_ID }}
-            service_account_email: ${{ GCP.GCP_EMAIL }}
-            service_account_key: ${{ GCP.GCP_CREDENTIALS }}
+            project_id: ${{ secrets.GCP_PROJECT_ID }}
+            service_account_email: ${{ secrets.GCP_EMAIL }}
+            service_account_key: ${{ secrets.GCP_CREDENTIALS }}
 
         - name: Configure Docker
           run: gcloud auth configure-docker --quiet
@@ -34,5 +32,5 @@ jobs:
           run: docker push $IMAGE_NAME
 
         - name: Deploy Docker image
-          run: gcloud run deploy ${{ GCP.GCP_PROJECT_ID }} --image $IMAGE_NAME --region us-central1 --platform managed
+          run: gcloud run deploy ${{ secrets.GCP_PROJECT_ID }} --image $IMAGE_NAME --region us-central1 --platform managed
 
