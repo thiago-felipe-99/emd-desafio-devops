@@ -19,3 +19,4 @@ COPY *.py ./
 
 ENTRYPOINT make deploy
 
+EXPOSE 8080
