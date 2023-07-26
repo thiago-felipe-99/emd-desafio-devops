@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ master ]
+
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
