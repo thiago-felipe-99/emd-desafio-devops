@@ -50,7 +50,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v0
         with:
           flags: '--allow-unauthenticated'
-          service: ${{ github.sha }}
+          service: commit-${{ github.sha }}
           region: ${{ env.REGION }}
           image: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
           env_vars: |
