@@ -18,6 +18,7 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+      pull-requests: 'write'
 
     runs-on: ubuntu-latest
     steps:
@@ -56,5 +57,18 @@ jobs:
           env_vars: |
             NAME=${{ github.sha }}
 
-      - name: Show Output
+      - name: Comment Cloud Run URL on pull request
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Deployed to Google Cloud Run!\n\n[Click here to access the service](${{ steps.deploy.outputs.url }})'
+            });
+
+      - name: Show Output URL
         run: echo ${{ steps.deploy.outputs.url }}
