@@ -2,8 +2,6 @@ name: Build and Deploy to Cloud Run Pull Request
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -52,7 +50,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v0
         with:
           flags: '--allow-unauthenticated'
-          service: ${{ env.SERVICE }}-${{ github.sha }}
+          service: ${{ github.sha }}
           region: ${{ env.REGION }}
           image: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
           env_vars: |
