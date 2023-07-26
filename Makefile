@@ -13,8 +13,8 @@ check_poetry:
 	 $(error "No poetry in $$PATH, consider doing make install_poetry")
  endif
 
-install_all_dependecies: check_poetry
 .PHONY: install_all_dependecies
+install_all_dependecies: check_poetry
 	poetry install
 
 .PHONY: install_deploy_dependecies
@@ -27,11 +27,11 @@ lint:
 
 .PHONY: run
 run: install_all_dependecies lint
-	poetry run flask run --debug
+	poetry run flask --app src run --debug
 
 .PHONY: deploy
 deploy: install_deploy_dependecies
-	poetry run gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
+	poetry run gunicorn --chdir src --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 'src:create_app()'
 
 .PHONY: build
 build:
@@ -44,4 +44,13 @@ push: build
 
 .PHONY: docker
 docker: build
-	docker compose up -d
+	docker compose up -d --build
+
+.PHONY: test
+test: install_all_dependecies
+	poetry run pytest
+
+.PHONY: coverage
+coverage: install_all_dependecies
+	poetry run coverage run -m pytest
+	poetry run coverage report
