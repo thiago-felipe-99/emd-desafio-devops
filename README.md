@@ -1,4 +1,5 @@
 # Desafio de DevOps Engineer - EMD
+[![Coverage Status](https://coveralls.io/repos/github/thiago-felipe-99/emd-desafio-devops/badge.svg?branch=main)](https://coveralls.io/github/thiago-felipe-99/emd-desafio-devops?branch=main)
 
 ## Items do desafio
 

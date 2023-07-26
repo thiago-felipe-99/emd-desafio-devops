@@ -17,6 +17,8 @@ RUN make install_deploy_dependecies
 
 COPY src ./src
 
+USER non-root
+
 ENTRYPOINT make deploy
 
 EXPOSE 8080
