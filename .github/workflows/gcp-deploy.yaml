@@ -15,7 +15,7 @@ env:
   REGION: us-central1
 
 jobs:
-    deploy:
+  deploy:
     permissions:
       contents: 'read'
       id-token: 'write'
