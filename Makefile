@@ -45,3 +45,12 @@ push: build
 .PHONY: docker
 docker: build
 	docker compose up -d --build
+
+.PHONY: test
+test: install_all_dependecies
+	poetry run pytest
+
+.PHONY: coverage
+coverage: install_all_dependecies
+	poetry run coverage run -m pytest
+	poetry run coverage report

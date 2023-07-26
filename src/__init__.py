@@ -17,7 +17,3 @@ def create_app(test_config=None):
         return f"Hello, {app.config.get('NAME')}!"
 
     return app
-
-
-if __name__ == "__main__":
-    create_app().run()
