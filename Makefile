@@ -27,11 +27,11 @@ lint:
 
 .PHONY: run
 run: install_all_dependecies lint
-	poetry run flask run --debug
+	poetry run flask --app src/app.py run --debug
 
 .PHONY: deploy
 deploy: install_deploy_dependecies
-	poetry run gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
+	poetry run gunicorn --chdir src --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
 
 .PHONY: build
 build:
@@ -44,4 +44,4 @@ push: build
 
 .PHONY: docker
 docker: build
-	docker compose up -d
+	docker compose up -d --build

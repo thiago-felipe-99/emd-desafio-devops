@@ -15,7 +15,7 @@ ENV PATH=/root/.local/bin:$PATH
 
 RUN make install_deploy_dependecies
 
-COPY *.py ./
+COPY src ./src
 
 ENTRYPOINT make deploy
 
