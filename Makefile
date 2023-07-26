@@ -27,11 +27,11 @@ lint:
 
 .PHONY: run
 run: install_all_dependecies lint
-	poetry run flask --app src/app.py run --debug
+	poetry run flask --app src run --debug
 
 .PHONY: deploy
 deploy: install_deploy_dependecies
-	poetry run gunicorn --chdir src --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 app:app
+	poetry run gunicorn --chdir src --bind 0.0.0.0:8080 --workers 1 --threads 8 --timeout 0 'src:create_app()'
 
 .PHONY: build
 build:
