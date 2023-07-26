@@ -8,7 +8,7 @@ on:
 
 
 env:
-  PROJECT_ID: ${{ secretes.GCP_PROJECT_ID }}
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GAR_LOCATION: us-central1
   REPOSITORY: ${{ secrets.GCP_APP_NAME }}
   SERVICE: ${{ secrets.GCP_APP_NAME }}
