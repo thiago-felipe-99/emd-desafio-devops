@@ -4,10 +4,12 @@ from src import create_app
 
 @pytest.fixture
 def app():
-    app = create_app({
-        'TESTING': True,
-        'NAME': 'TESTING_DEV',
-    })
+    app = create_app(
+        {
+            "TESTING": True,
+            "NAME": "TESTING_DEV",
+        }
+    )
 
     yield app
 
