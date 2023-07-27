@@ -493,6 +493,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#observacoes" class="md-nav__link">
+    Observações
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -747,6 +754,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#observacoes" class="md-nav__link">
+    Observações
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -766,6 +780,7 @@
 
 
 <h1 id="resolucao-dos-desafios">Resolução Dos Desafios</h1>
+<p>Resolução do <a href="https://github.com/prefeitura-rio/emd-desafio-devops">Desafio DevOps Engineer - EMD</a></p>
 <p>O projeto era composto por 9 desafios, irei descrever o que eu fiz para solucionar
 todos eles</p>
 <h2 id="desafio-1">Desafio 1</h2>
@@ -913,6 +928,21 @@ de utilizar as ferramentas de Issues e Pull Requests do Github.</p>
 <ul>
 <li><a href="https://github.com/thiago-felipe-99/emd-desafio-devops/issues/27">#27</a></li>
 </ul>
+<h2 id="observacoes">Observações</h2>
+<p>No desafio pede para usar um fork do projeto, porém eu fiz um fork sem usar a
+interface do github assim o meu projeto, no github, não aparece que é originalmente
+um fork de <a href="https://github.com/prefeitura-rio/emd-desafio-devops">https://github.com/prefeitura-rio/emd-desafio-devops</a>
+porém eu não apaguei nenhum commit. Eu poderia refazer o projeto utilizando a
+interface do github porém isso iria apagar o meu histórico de Issues, Pull Requests
+e Actions por isso não fiz isso.</p>
+<p>Comando usados para fazer fork:</p>
+<pre><code class="language-shell">git clone https://github.com/prefeitura-rio/emd-desafio-devops
+cd emd-desafio-devops
+git remote add fork https://github.com/prefeitura-rio/emd-desafio-devops
+git remote set-url origin git@github.com:thiago-felipe-99/emd-desafio-devops.git
+git branch -M main
+git push -u origin main
+</code></pre>
 
 
 
