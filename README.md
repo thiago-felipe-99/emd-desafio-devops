@@ -1,5 +1,6 @@
 # Desafio de DevOps Engineer - EMD
 [![Coverage Status](https://coveralls.io/repos/github/thiago-felipe-99/emd-desafio-devops/badge.svg?branch=main)](https://coveralls.io/github/thiago-felipe-99/emd-desafio-devops?branch=main)
+Resolução do [Desafio DevOps Engineer - EMD](https://github.com/prefeitura-rio/emd-desafio-devops)
 
 ## Documentação do desafio
 A documentação do desafio pode ser vista em [https://thiago-felipe-99.github.io/emd-desafio-devops/](https://thiago-felipe-99.github.io/emd-desafio-devops/).
