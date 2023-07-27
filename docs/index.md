@@ -153,3 +153,21 @@ de utilizar as ferramentas de Issues e Pull Requests do Github.
 
 ### Issues
 - [#27](https://github.com/thiago-felipe-99/emd-desafio-devops/issues/27)
+
+## Observações
+No desafio pede para usar um fork do projeto, porém eu fiz um fork sem usar a
+interface do github assim o meu projeto, no github, não aparece que é originalmente
+um fork de [https://github.com/prefeitura-rio/emd-desafio-devops](https://github.com/prefeitura-rio/emd-desafio-devops)
+porém eu não apaguei nenhum commit. Eu poderia refazer o projeto utilizando a
+interface do github porém isso iria apagar o meu histórico de Issues, Pull Requests
+e Actions por isso não fiz isso.
+
+Comando usados para fazer fork:
+```shell
+git clone https://github.com/prefeitura-rio/emd-desafio-devops
+cd emd-desafio-devops
+git remote add fork https://github.com/prefeitura-rio/emd-desafio-devops
+git remote set-url origin git@github.com:thiago-felipe-99/emd-desafio-devops.git
+git branch -M main
+git push -u origin main
+```
