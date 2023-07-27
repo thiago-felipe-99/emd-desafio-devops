@@ -63,3 +63,11 @@ all: deploy
 .PHONY: clean
 clean:
 	rm -rf .mypy_cache src/__pycache__ test/__pycache__ .pytest_cache
+
+.PHONY: publish_docs
+publish_docs:
+	poetry run mkdocs gh-deploy
+
+.PHONY: run_docs
+run_docs:
+	poetry run mkdocs serve
