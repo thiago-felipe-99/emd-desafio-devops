@@ -3,21 +3,26 @@ FROM python:3.9-alpine
 ENV PYTHONUNBUFFERED True
 
 ENV APP_HOME /app
+
 WORKDIR $APP_HOME
 
 RUN apk add make curl
 
 COPY pyproject.toml Makefile ./
 
-RUN make install_poetry
+ENV POETRY_HOME=/etc/poetry
 
-ENV PATH=/root/.local/bin:$PATH
+ENV PATH=/etc/poetry/bin:$PATH
+
+RUN make install_poetry
 
 RUN make install_deploy_dependecies
 
 COPY src ./src
 
-USER non-root
+RUN adduser docker --gecos "" --home /home/docker --disabled-password
+
+USER docker
 
 ENTRYPOINT make deploy
 
